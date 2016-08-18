@@ -13,6 +13,7 @@
 @interface SCBlurCoverView : UIImageView
 
 + (SCBlurCoverView*)shareInstance;
-- (void)showWithView:(UIView*)view;
+- (void)showWithView:(UIView*)view isResign:(BOOL)isResign;
+- (void)removeFromSuperview;
 
 @end

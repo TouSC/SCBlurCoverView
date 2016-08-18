@@ -30,7 +30,7 @@
     return self;
 }
 
-- (void)showWithView:(UIView*)view;
+- (void)showWithView:(UIView*)view isResign:(BOOL)isResign;
 {
     self.alpha = 0;
     @autoreleasepool {
@@ -44,6 +44,10 @@
         self.alpha = 1.0;
     }completion:^(BOOL finished) {
         self.userInteractionEnabled = YES;
+        if (isResign)
+        {
+            [self addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(removeFromSuperview)]];
+        }
         [self addSubview:view];
     }];
 }
